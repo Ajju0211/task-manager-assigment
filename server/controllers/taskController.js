@@ -4,12 +4,13 @@ import Task from '../models/Task.js';
 
 // @desc    Create a new task
 // @route   POST /api/tasks
+
 export const createTask = async (req, res) => {
   try {
     const { title, description, assignedTo, status } = req.body;
     const task = new Task({ title, description, assignedTo, status });
     await task.save();
-    res.status(201).json(task);
+    res.status(201).json({status: 200, data: task});
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
@@ -25,7 +26,7 @@ export const getAllTasks = async (req, res) => {
     if (assignedTo) filter.assignedTo = assignedTo;
 
     const tasks = await Task.find(filter);
-    res.json(tasks);
+    res.json({status: 200, data: tasks});
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -33,11 +34,12 @@ export const getAllTasks = async (req, res) => {
 
 // @desc    Get a single task by ID
 // @route   GET /api/tasks/:id
+
 export const getTaskById = async (req, res) => {
   try {
     const task = await Task.findById(req.params.id);
     if (!task) return res.status(404).json({ message: 'Task not found' });
-    res.json(task);
+    res.json({status: 200, data: task});
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -45,6 +47,7 @@ export const getTaskById = async (req, res) => {
 
 // @desc    Update a task by ID
 // @route   PUT /api/tasks/:id
+
 export const updateTask = async (req, res) => {
   try {
     const updatedTask = await Task.findByIdAndUpdate(
@@ -53,7 +56,7 @@ export const updateTask = async (req, res) => {
       { new: true, runValidators: true }
     );
     if (!updatedTask) return res.status(404).json({ message: 'Task not found' });
-    res.json(updatedTask);
+    res.json({status: 200, data: updatedTask});
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
@@ -61,11 +64,12 @@ export const updateTask = async (req, res) => {
 
 // @desc    Delete a task by ID
 // @route   DELETE /api/tasks/:id
+
 export const deleteTask = async (req, res) => {
   try {
     const deletedTask = await Task.findByIdAndDelete(req.params.id);
     if (!deletedTask) return res.status(404).json({ message: 'Task not found' });
-    res.json({ message: 'Task deleted successfully' });
+    res.json({status: 200, message: 'Task deleted successfully' });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

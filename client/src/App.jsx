@@ -1,13 +1,11 @@
 import { useState } from 'react'
-
+import DashBoard from './pages/DashBoard'
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-    <h1 className=''>
-      hello
-    </h1>
+    <DashBoard></DashBoard>
     </>
   )
 }

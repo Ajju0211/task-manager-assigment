@@ -1,0 +1,99 @@
+# 🧠 Collaborative Task Manager (MERN Stack)
+
+A simple collaborative task manager built using the MERN stack.  
+The application allows users to create, assign, update, and filter tasks based on assignee and status.  
+Designed with modular structure, clean code, and team-based roles in mind.
+
+---
+
+## 🎯 Features
+
+- ✅ Create a task (Title, Description, Assignee, Status)
+- 🔁 Update the status of any task
+- 🔎 Filter tasks by:
+  - Status: "To Do", "In Progress", "Done"
+  - Assignee (e.g., Alice, Bob)
+- ❌ Delete tasks
+- 📄 View all tasks in one place
+
+---
+
+## 🛠 Tech Stack
+
+- **Frontend**: React.js (Hooks + Functional Components)
+- **Backend**: Node.js + Express.js
+- **Database**: MongoDB with Mongoose
+- **Styling**: Basic CSS / Bootstrap / Material-UI
+- **Version Control**: Git (GitHub)
+
+---
+
+## 📁 Folder Structure
+
+root/
+│
+├── client/ # React frontend
+│ └── src/
+│ ├── components/
+│ └── App.js
+│
+├── server/ # Express backend
+│ ├── models/ # Mongoose schemas
+│ ├── routes/ # Task-related API routes
+│ └── index.js # Entry point for the backend
+│
+└── README.md # Project documentation
+
+
+---
+
+## ⚙️ Getting Started
+
+### 🔧 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/task-manager.git
+cd task-manager
+
+ 2. Backend Setup (server)
+
+ ```cd server
+npm install
+npm start   # Runs on port 5000
+```
+
+Ensure MongoDB is running on your local machine or set a URI in .env:
+
+```MONGO_URI=mongodb://localhost:27017/taskdb```
+
+3. Frontend Setup (client)
+
+```cd client
+npm install
+npm start   # Runs on port 3000
+```
+
+📫 API Documentation
+🔹 Base URL
+```http://localhost:5000/api/tasks
+```
+
+🔹 Request Body Example (POST /)
+```{
+  "title": "Build UI",
+  "description": "Create the task form",
+  "assignedTo": "Ajay",
+  "status": "To Do"
+}
+```
+
+🔹 Filter by status or assignee (GET)
+bash
+Copy
+Edit
+
+/api/tasks?status=In Progress
+/api/tasks?assignedTo=Ajay
+
+👨‍💻 Author
+Ajay Singh
