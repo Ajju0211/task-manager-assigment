@@ -1,0 +1,21 @@
+# Ignore all node_modules
+node_modules/
+
+# Client-specific ignores
+client/node_modules/
+client/dist/
+client/build/
+client/.env
+
+# Server-specific ignores
+server/node_modules/
+server/.env
+server/logs/
+server/*.log
+
+# General ignores
+.env
+*.log
+.DS_Store
+.vscode/
+.idea/
