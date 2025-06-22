@@ -32,16 +32,7 @@ This application enables users to create, assign, update, and filter tasks — s
 ```
 root/
 ├── client/               # React frontend
-│   └── src/
-│       ├── components/   # Task components (form, list, filters, etc.)
-│       └── App.js        # Main application logic
-│
-├── server/               # Express backend
-│   ├── models/           # Mongoose schemas (Task.js)
-│   ├── routes/           # REST API routes (taskRoutes.js)
-│   ├── controllers/      # API logic handlers (taskController.js)
-│   └── index.js          # Server entry point
-│
+├── server/
 └── README.md             # Project documentation
 ```
 
@@ -79,7 +70,7 @@ MONGO_URI=mongodb://localhost:27017/taskdb
 ```bash
 cd client
 npm install
-npm start    # React app runs on port 3000
+npm run dev    # React app runs on port 3000
 ```
 
 ---
@@ -89,7 +80,7 @@ npm start    # React app runs on port 3000
 ### 🔹 Base URL
 
 ```
-http://localhost:5000/api/tasks
+http://localhost:3000/api/tasks
 ```
 
 ---
@@ -112,16 +103,21 @@ http://localhost:5000/api/tasks
 ### 🔹 GET /api/tasks
 
 **Get all tasks**
-
-**Optional filters:**
-
 ```
-/api/tasks?status=In Progress
-/api/tasks?assignedTo=Ajay
+/api/tasks
 ```
 
----
+**Get all tasks**
+```
+/api/tasks
+```
 
+**Get task by Id**
+```
+/api/tasks/:id
+```
+
+**Update task
 ### 🔹 PUT /api/tasks/:id
 
 **Update an existing task by ID**
@@ -156,12 +152,6 @@ http://localhost:5000/api/tasks
 - 🌐 Deploy to Render (backend) and Netlify (frontend)
 - 📱 Mobile-friendly UI
 - 📈 Pagination and Search
-
----
-
-## 🙌 Acknowledgements
-
-Thanks to [Material Tailwind](https://www.material-tailwind.com/) and [MongoDB](https://www.mongodb.com/) for open-source tools and documentation.
 
 ---
 
