@@ -1,16 +1,19 @@
 import React from 'react';
 import { X } from 'lucide-react';
+import { useTaskContext } from '../context/useTarskContext';
 
-const TaskEditor = ({
-  showModal,
-  setShowModal,
-  formData,
-  setFormData,
-  handleSubmit,
-  resetForm,
-  editingTask,
-  teamMembers = [],
-}) => {
+const TaskEditor = () => {
+  const {
+    showModal,
+
+    formData,
+    setFormData,
+    handleSubmit,
+    resetForm,
+    editingTask,
+    teamMembers,
+  } = useTaskContext();
+
   if (!showModal) return null;
 
   return (

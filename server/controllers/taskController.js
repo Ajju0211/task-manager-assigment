@@ -3,7 +3,7 @@
 import Task from '../models/Task.js';
 
 // @desc    Create a new task
-// @route   POST /api/tasks
+// @route   POST /api/v1/tasks
 
 export const createTask = async (req, res) => {
   try {
@@ -17,7 +17,7 @@ export const createTask = async (req, res) => {
 };
 
 // @desc    Get all tasks (with optional filters)
-// @route   GET /api/tasks
+// @route   GET /api/v1/tasks
 export const getAllTasks = async (req, res) => {
   try {
     const { status, assignedTo } = req.query;
@@ -33,7 +33,7 @@ export const getAllTasks = async (req, res) => {
 };
 
 // @desc    Get a single task by ID
-// @route   GET /api/tasks/:id
+// @route   GET /api/v1/tasks/:id
 
 export const getTaskById = async (req, res) => {
   try {
@@ -46,7 +46,7 @@ export const getTaskById = async (req, res) => {
 };
 
 // @desc    Update a task by ID
-// @route   PUT /api/tasks/:id
+// @route   PUT /api/v1/tasks/:id
 
 export const updateTask = async (req, res) => {
   try {
@@ -63,7 +63,7 @@ export const updateTask = async (req, res) => {
 };
 
 // @desc    Delete a task by ID
-// @route   DELETE /api/tasks/:id
+// @route   DELETE /api/v1/tasks/:id
 
 export const deleteTask = async (req, res) => {
   try {
